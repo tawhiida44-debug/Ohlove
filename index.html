@@ -149,22 +149,63 @@
         }
 
         .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-            margin: 25px 0;
-        }
-        .photo-card {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            aspect-ratio: 4/5;
-            background: #fef0f4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .photo-card img { width: 100%; height: 100%; object-fit: cover; }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 18px;
+    margin: 35px 5px;
+    padding: 10px 5px;
+}
+.photo-card {
+    background: #fff;
+    padding: 12px 12px 42px 12px;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px rgba(201, 24, 74, 0.15);
+    position: relative;
+    overflow: visible;
+    transition: all 0.35s ease;
+    cursor: pointer;
+}
+.photo-card::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 70px;
+    height: 22px;
+    background: rgba(255, 179, 193, 0.7);
+    border-left: 1px dashed rgba(255,255,255,0.6);
+    border-right: 1px dashed rgba(255,255,255,0.6);
+    z-index: 2;
+}
+.photo-card:nth-child(odd) { transform: rotate(-2.5deg); }
+.photo-card:nth-child(even) { transform: rotate(2.5deg); margin-top: 12px; }
+.photo-card:nth-child(3) { transform: rotate(1.5deg); }
+.photo-card:nth-child(5) { transform: rotate(-1.5deg); }
+
+.photo-card:hover {
+    transform: rotate(0deg) scale(1.06) !important;
+    z-index: 10;
+    box-shadow: 0 18px 35px rgba(255, 77, 109, 0.3);
+}
+.photo-card img {
+    width: 100%;
+    height: 185px;
+    object-fit: cover;
+    border-radius: 3px;
+    display: block;
+}
+.photo-caption {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 13.5px;
+    color: #c9184a;
+    font-style: italic;
+    letter-spacing: 0.3px;
+}
 
         .voice-box, .secret-box {
             background: #fff0f3;
@@ -240,33 +281,33 @@
             <div class="counter" id="daysTogether"></div>
 
             <h2> Our Beautiful Memories</h2>
-            <div class="photo-gallery">
-                <div class="photo-card"><img src="photo1.jpg" alt="Us" onerror="this.parentElement.innerHTML='📷 Add photo1.jpg'"></div>
-                <div class="photo-card"><img src="photo2.jpg" alt="Us" onerror="this.parentElement.innerHTML='📷 Add photo2.jpg'"></div>
-                <div class="photo-card"><img src="photo3.jpg" alt="Us" onerror="this.parentElement.innerHTML='📷 Add photo3.jpg'"></div>
-                <div class="photo-card"><img src="photo4.jpg" alt="Us" onerror="this.parentElement.innerHTML='📷 Add photo4.jpg'"></div>
-                <div class="photo-card"><img src="photo5.jpg" alt="Us" onerror="this.parentElement.innerHTML=' Add photo5.jpg'"></div>
-                <div class="photo-card"><img src="photo6.jpg" alt="Us" onerror="this.parentElement.innerHTML=' Add photo6.jpg'"></div>
-            </div>
-
-            <h2> Our Story — Click to Remember</h2>
-            <div class="timeline">
-                <div class="timeline-item" onclick="alert('Everything changed the day we met..hihihi uongo lakin i dont remember us meeti just grew up and u were there. ')">
-                    <div class="timeline-date"> The Day We Met</div><div>It all started 20 yrs ago </div>
-                </div>
-                <div class="timeline-item" onclick="alert('My heart knew you were special from that first smile  ok i already knew the smile i remember was just melting me ')">
-                    <div class="timeline-date"> When I Knew</div><div>The moment I fell for you</div>
-                </div>
-                <div class="timeline-item" onclick="alert('Every laugh, every walk, every quiet moment  my favourite memories are with you ')">
-                    <div class="timeline-date"> Our Best Moments</div><div>All the little things that matter</div>
-                </div>
-                <div class="timeline-item" onclick="alert('You make every day brighter just by being in it, Feisal ')">
-                    <div class="timeline-date"> Everyday Magic</div><div>Just being us is my favourite place</div>
-                </div>
-                <div class="timeline-item" onclick="alert('No matter what, I choose you. Today, always, and forever ')">
-                    <div class="timeline-date"> Forever Starts Now</div><div>Our beautiful future together</div>
-                </div>
-            </div>
+<p style="font-size:14px; color:#888; margin-bottom:5px; font-style:italic;">tap a photo to feel it closer </p>
+<div class="photo-gallery">
+    <div class="photo-card">
+        <img src="photo1.jpg" alt="Us" onerror="this.parentElement.innerHTML=' Add photo1.jpg'">
+        <div class="photo-caption">my favourite smile</div>
+    </div>
+    <div class="photo-card">
+        <img src="photo2.jpg" alt="Us" onerror="this.parentElement.innerHTML=' Add photo2.jpg'">
+        <div class="photo-caption">us, just us</div>
+    </div>
+    <div class="photo-card">
+        <img src="photo3.jpg" alt="Us" onerror="this.parentElement.innerHTML=' Add photo3.jpg'">
+        <div class="photo-caption">still my baby</div>
+    </div>
+    <div class="photo-card">
+        <img src="photo4.jpg" alt="Us" onerror="this.parentElement.innerHTML=' Add photo4.jpg'">
+        <div class="photo-caption">the day I knew</div>
+    </div>
+    <div class="photo-card">
+        <img src="photo5.jpg" alt="Us" onerror="this.parentElement.innerHTML=' Add photo5.jpg'">
+        <div class="photo-caption">my safe place</div>
+    </div>
+    <div class="photo-card">
+        <img src="photo6.jpg" alt="Us" onerror="this.parentElement.innerHTML=' Add photo6.jpg'">
+        <div class="photo-caption">forever us, biithnillah</div>
+    </div>
+</div>
 
             <h2> Tap Each Petal, Feisal </h2>
             <div class="petal-container">
@@ -301,7 +342,7 @@
                     ~ Your wifey ~
                 </div>
             </div>
-                <!-- ✨ The Last Thing I Need You To Know -->
+                <!--  The Last Thing I Need You To Know -->
             <div style="background: linear-gradient(145deg, #fff1f6, #ffe0e8); border-radius: 24px; padding: 35px 25px; margin: 45px 0 30px; border: 2px solid #ffc2d1;">
                 <h2 style="color: #a03c5c; font-size: 20px; margin-bottom: 10px;">Hold For Me One Last Time</h2>
                 <p style="font-size:14px; color:#885566; font-style:italic; margin-bottom:25px;">5 seconds. That's all I ask </p>
